@@ -23,6 +23,9 @@
 					},
 					"@flamework": {
 						"$path": "node_modules/@flamework"
+					},
+					"@capedbojji": {
+						"$path": "node_modules/@capedbojji"
 					}
 				}
 			},
