@@ -1,0 +1,9 @@
+[package]
+name = "caped/multiverse-tactics"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+tree = "sleitnick/tree@1.1.0"
+serializerutil = "bubshayz/serializerutil@1.5.0"

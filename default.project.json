@@ -31,6 +31,9 @@
 			},
 			"TS": {
 				"$path": "out/shared"
+			},
+			"Wally": {
+				"$path": "Packages"
 			}
 		},
 		"StarterPlayer": {
