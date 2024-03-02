@@ -10,7 +10,12 @@ dependencies = [["Loader", "sleitnick/loader@2.0.0"]]
 [[package]]
 name = "caped/multiverse-tactics"
 version = "0.1.0"
-dependencies = [["serializerutil", "bubshayz/serializerutil@1.5.0"], ["tree", "sleitnick/tree@1.1.0"]]
+dependencies = [["lemonsignal", "data-oriented-house/lemonsignal@1.9.0"], ["serializerutil", "bubshayz/serializerutil@1.5.0"], ["tree", "sleitnick/tree@1.1.0"]]
+
+[[package]]
+name = "data-oriented-house/lemonsignal"
+version = "1.9.0"
+dependencies = []
 
 [[package]]
 name = "sleitnick/loader"

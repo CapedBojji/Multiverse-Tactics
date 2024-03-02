@@ -1,0 +1,3 @@
+enum ClientPubSubEvents {}
+
+export = ClientPubSubEvents;

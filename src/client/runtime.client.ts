@@ -1,6 +1,12 @@
 import Zircon, { ZirconClient } from "@rbxts/zircon";
 import { Flamework, Modding } from "@flamework/core";
 import Log, { Logger } from "@rbxts/log";
+import { GameState, RootProducer, gameState } from "./state";
+import instanceManager, { InstanceManager } from "./manager/instance-manager";
+import EventQueue, { TEventQueue } from "shared/modules/eventqueue";
+import { ClientEvents } from "./network";
+import ClientPubSubEvents from "./client-events";
+import registerDependencies from "./register-dependencies";
 
 // Set up the logger
 print("Setting up Logger...");
@@ -11,12 +17,8 @@ Log.SetLogger(
 );
 print("Logger set up.");
 
-// Register log dependencies
-print("Registering Logger dependency...");
-Modding.registerDependency<Logger>((ctor) => {
-	return Log.ForContext(ctor);
-});
-print("Registered Logger dependency.");
+// Register dependencies
+registerDependencies();
 
 // Set up  Zircon
 print("Setting up Zircon Client...");

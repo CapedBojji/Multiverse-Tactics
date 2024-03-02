@@ -1,7 +1,8 @@
 import { createProducer } from "@rbxts/reflex";
 
-interface Duel {
+export interface Duel {
 	matchId: string;
+	phase: "Init" | "Planning" | "Combat" | "End";
 }
 
 export type DuelsState = {

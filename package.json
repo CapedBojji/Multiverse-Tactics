@@ -34,6 +34,8 @@
 		"@rbxts/log": "^0.6.3",
 		"@rbxts/reflex": "^4.3.1",
 		"@rbxts/roact": "^1.4.4-ts.0",
+		"@rbxts/services": "^1.5.4",
+		"@rbxts/validate-tree": "^2.0.2",
 		"@rbxts/zircon": "^1.0.9"
 	}
 }
