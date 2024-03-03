@@ -2,8 +2,9 @@ import { Components } from "@flamework/components";
 import { Controller, OnStart, OnInit } from "@flamework/core";
 import { Janitor } from "@rbxts/better-janitor";
 import { Logger } from "@rbxts/log";
-import { CollectionService } from "@rbxts/services";
-import { CameraComponent } from "client/components/duels/camera-component";
+import { CollectionService, Players } from "@rbxts/services";
+import { CameraComponent } from "client/components/duels/CameraComponent";
+import { StunComponent } from "client/components/duels/StunComponent";
 import instanceManager, { InstanceManager } from "client/manager/instance-manager";
 import { MapEnum } from "client/manager/instance-manager/duels/create-map";
 import { GameState, RootProducer } from "client/state";
@@ -15,7 +16,7 @@ export class InitPhaseController implements OnStart, OnInit {
 		private readonly logger: Logger,
 		private readonly gameState: RootProducer,
 		private readonly instanceManager: InstanceManager,
-        private readonly components: Components,
+		private readonly components: Components,
 	) {}
 	onInit() {}
 
@@ -48,7 +49,7 @@ export class InitPhaseController implements OnStart, OnInit {
 		});
 
 		// Create a new duel UI
-
+		
 		// Create new duel map
 		const duelMap = this.instanceManager.createNewMap(MapEnum.Default) as Model;
 		duelMap.Parent = game.Workspace;
@@ -62,10 +63,11 @@ export class InitPhaseController implements OnStart, OnInit {
 		duelJanitor.addInstance(duelMap, "DuelMap");
 		// Attach CameraComponent to the camera
 		const camera = game.Workspace.CurrentCamera!;
-        this.components.addComponent<CameraComponent>(camera)
-        // Attach StunComponent to the player
-        
-
+		this.components.addComponent<CameraComponent>(camera);
+		// Attach StunComponent to the player
+		const player = Players.LocalPlayer;
+		const character = player.Character || player.CharacterAdded.Wait()[0];
+		const stunComponent = this.components.addComponent<StunComponent>(character);
 		return () => {
 			duelJanitor.cleanup();
 		};

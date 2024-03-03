@@ -1,4 +1,4 @@
-import { TEventQueue } from "./../../../shared/modules/eventqueue";
+import { TEventQueue } from "../../../shared/modules/eventqueue";
 import { OnRender, OnStart } from "@flamework/core";
 import { Component, BaseComponent } from "@flamework/components";
 import ClientPubSubEvents from "client/client-events";
