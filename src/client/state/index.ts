@@ -26,9 +26,11 @@ const reciever = createBroadcastReceiver({
 		ClientEvents.reflex.start.fire();
 	},
 });
+
 ClientEvents.reflex.dispatch.connect((actions) => {
 	const serializedData = serializer.serializeTableDeep(actions);
 	Logger.Info(`Recieved actions ${serializedData} from server`);
 	reciever.dispatch(actions);
 });
-gameState.applyMiddleware(reciever.middleware);
+
+// gameState.applyMiddleware(reciever.middleware);

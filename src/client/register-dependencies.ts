@@ -1,3 +1,4 @@
+import { ClientEvents } from "client/network";
 import { Dependency, Modding } from "@flamework/core";
 import Log, { Logger } from "@rbxts/log";
 import { RootProducer, gameState } from "./state";
@@ -5,6 +6,7 @@ import instanceManager, { InstanceManager } from "./manager/instance-manager";
 import EventQueue, { TEventQueue } from "shared/modules/eventqueue";
 import ClientPubSubEvents from "./client-events";
 import { Components } from "@flamework/components";
+import { GlobalEvents } from "shared/networking";
 
 export default function registerDependencies() {
 	print("Registering all dependencies...");
@@ -35,13 +37,6 @@ export default function registerDependencies() {
 		return eventQueue;
 	});
 	print("Registered EventQueue dependency.");
-
-	// Register Component dependency
-	print("Registering Component dependency...");
-	Modding.registerDependency<Components>((ctor) => {
-		return Dependency<Components>();
-	});
-	print("Registered Component dependency.");
 
 	// Finished registering all dependencies
 	print("Registered all dependencies.");

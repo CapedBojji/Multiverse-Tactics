@@ -1,7 +1,7 @@
 import { ReplicatedStorage } from "@rbxts/services";
 
 export enum MapEnum {
-	Default = "Default",
+	default = "default",
 }
 
 const enumToModelMap = new Map<MapEnum, Model>();
@@ -9,7 +9,7 @@ const enumToModelMap = new Map<MapEnum, Model>();
 // Each child should contain an attribute with the value of the enum
 const maps = ReplicatedStorage.Maps;
 for (const child of maps.GetChildren()) {
-	const value = child.GetAttribute("MapEnum") as MapEnum;
+	const value = child.GetAttribute("MapEnumValue") as MapEnum;
 	enumToModelMap.set(MapEnum[value], child as Model);
 }
 

@@ -1,27 +1,38 @@
 interface ReplicatedStorage extends Instance {
 	TS: Folder & {
 		modules: Folder & {
+			eventqueue: ModuleScript;
 			repr: ModuleScript;
+			["lemon-signal"]: ModuleScript;
 		};
 		slices: ModuleScript & {
-			duels: ModuleScript;
+			duels: ModuleScript & {
+				["battle-state"]: ModuleScript;
+			};
 		};
 		networking: ModuleScript & {
 			["client-events"]: ModuleScript;
 			["server-events"]: ModuleScript;
 		};
 		utilities: Folder & {
-			tree: ModuleScript;
-			["client-middlewares"]: ModuleScript;
-			serializer: ModuleScript;
 			["server-middlewares"]: ModuleScript;
+			serializer: ModuleScript;
+			listeners: ModuleScript;
+			["client-middlewares"]: ModuleScript;
+			tree: ModuleScript;
 		};
 		components: Folder;
+		selectors: Folder;
 	};
 	Wally: Folder & {
 		_Index: Folder & {
 			["sleitnick_loader@2.0.0"]: Folder & {
 				loader: ModuleScript & {
+					wally: ModuleScript;
+				};
+			};
+			["sleitnick_tree@1.1.0"]: Folder & {
+				tree: ModuleScript & {
 					wally: ModuleScript;
 				};
 			};
@@ -91,14 +102,15 @@ interface ReplicatedStorage extends Instance {
 				};
 				Loader: ModuleScript;
 			};
-			["sleitnick_tree@1.1.0"]: Folder & {
-				tree: ModuleScript & {
+			["data-oriented-house_lemonsignal@1.9.0"]: Folder & {
+				lemonsignal: ModuleScript & {
 					wally: ModuleScript;
 				};
 			};
 		};
 		tree: ModuleScript;
 		serializerutil: ModuleScript;
+		lemonsignal: ModuleScript;
 	};
 	Maps: Folder & {
 		["Map-Default"]: Model & {
